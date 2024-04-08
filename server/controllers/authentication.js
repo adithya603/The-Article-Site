@@ -30,7 +30,7 @@ export const signup = (req, res)=>{
 }
 
 export const login = (req, res)=>{
-    //CHECK USER EXISTS OR NOT
+    //checking if the user exits or not
 
     const q = "SELECT * FROM users WHERE username = ?"
 
@@ -46,7 +46,7 @@ export const login = (req, res)=>{
         //We use JWT(json web token) to verify the user that he's the owner of the post
         //npm i jsonwebtoken
 
-        const token = jwt.sign({id: data[0].id}, "SomeRandomJWTkey")
+        const token = jwt.sign({id: data[0].id}, "jwtkey")
 
         const {password, ...other} = data[0] //seperating password
         res.cookie("access_token", token, {
@@ -57,5 +57,8 @@ export const login = (req, res)=>{
 }
 
 export function logout(req, res){
-
+    res.clearCookie("access_token",{
+        sameSite:"none",
+        secure:true
+      }).status(200).json("User has been logged out.")
 }
