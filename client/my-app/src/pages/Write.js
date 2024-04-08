@@ -24,7 +24,7 @@ function Write(){
 
     try{
       state ? await axios.put(`posts/${state.id}`, {
-        title, desc, cat, img:"",
+        title, desc, cat, 
       })
       : await axios.post(`/posts/`, {
         title, desc, cat, img: "",
