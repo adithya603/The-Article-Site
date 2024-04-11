@@ -1,105 +1,177 @@
-$lightGreen : #b9e7e7;
+$firstColor : #F2613F;
+$secondColor : #0C0C0C; //#00246B;
 
-.app{
+body {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+}
 
-    display: flex;
-    justify-content: center;
-    .container{
-    
-    width: 1024px;
-    //LOGIN & REGISTER
+.app {
 
-    .link{
-        text-decoration: none;
-        color: inherit;
-    }
+    // display: flex;
+    // justify-content: center;
 
-        .auth{
+    .container {
+
+        .link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .auth {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: $lightGreen;
+            background-color: $firstColor;
         }
 
-        h1{
-            font-size: 30px;
-            color: teal;
+        h1 {
+            font-size: 35px;
+            color: $secondColor;
             margin-bottom: 20px;
         }
 
-        form{
+        form {
             display: flex;
             flex-direction: column;
             padding: 40px;
             background-color: white;
-            width: 200px;
+            border-radius: 8px;
+            /* Added a border radius */
+            box-shadow: 5 4px 6px rgba(0, 0, 0, 0.1);
+            /* Added a subtle shadow */
+            width: 300px;
+            /* Adjusted width for better spacing */
             gap: 20px;
         }
 
-        input{
-            padding: 10px;
-            border: none;
-            border-bottom: 1px solid gray;
+        input {
+            padding: 13px;
+            border: 2px solid #ccc;
+            /* Lighter border */
+            border-radius: 5px;
+            /* Rounded borders for inputs */
+            transition: border-color 0.3s;
+            /* Smooth transition for focus */
         }
 
-        button{
+        input:focus {
+            border-color: var(--secondColor);
+            /* Highlight focus */
+            outline: none;
+            /* Remove default focus outline */
+        }
+
+        .authButton {
             padding: 10px;
             border: none;
-            background-color: teal;
-            cursor: pointer;
+            background-color: $secondColor;
             color: white;
+            /* Ensure text is visible on button */
+            cursor: pointer;
+            border-radius: 5px;
+            /* Match input border-radius */
+            transition: background-color 0.3s;
+            /* Smooth background transition */
         }
 
-        p{
+        .authButton:hover {
+            background-color: darken($firstColor, 10%);
+            /* Slightly darker on hover */
+        }
+
+        p {
             font-size: 17px;
             color: red;
         }
 
-        span{
+        span {
             font-size: 12px;
             text-align: center;
         }
-    
+
+        /* Additional styles for Link */
+        a {
+            color: $secondColor;
+            text-decoration: underline;
+            /* Make it obvious it's clickable */
+        }
+
+        a:hover {
+            color: darken($firstColor, 10%);
+        }
+
 
         //NAVBAR
 
-        .navbar{
-            .container{
+        .navbar {
+            padding-left: 70px;
+            padding-right: 30px;
+            background-color: $secondColor;
+
+            .logo {
+                .navTitle {
+                    font-size: 34px;
+                    color: $firstColor;
+                    font-family: "Rubik Mono One", monospace;
+                }
+            }
+
+            .container {
                 padding: 10px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                .logo{
 
-                }
-                .links{
+                .links {
                     display: flex;
                     align-items: center;
-                    gap: 10px;
+                    gap: 17px;
 
-                    h6{
-                        font-size: 16px;
-                        font-weight: 300;
+                    h6 {
+                        font-size: 17px;
+                        font-weight: 440;
+                        color: $firstColor;
+
+                        &:hover {
+                            color: white;
+                        }
                     }
 
-                    span{
+                    span {
                         cursor: pointer;
                     }
 
-                    .write{
-                        background-color: $lightGreen;
+                    .loginButton1 {
+                        border: 2px solid $firstColor;
+                        margin-right: 13px;
+
+                        &:hover {
+                            background-color: #0C0C0C;
+                            border: 2px solid $firstColor;
+                            color: $firstColor;
+                        }
+                    }
+
+                    .loginButton2 {
+                        background-color: #0C0C0C;
+                        border: 3px solid $firstColor;
+                    }
+
+                    .write {
+                        background-color: $firstColor;
                         width: 50px;
                         height: 50px;
-                        border-radius:50%;
+                        border-radius: 50%;
                         display: flex;
                         align-items: center;
                         justify-content: center;
                         font-weight: 300;
                         border: 1px solid white;
 
-                        &:hover{
+                        &:hover {
                             color: teal;
                             background-color: white;
                             border: 1px solid teal;
@@ -112,10 +184,10 @@ $lightGreen : #b9e7e7;
 
         //FOOTER
 
-        footer{
+        footer {
             margin-top: 100px;
             padding: 20px;
-            background-color: $lightGreen;
+            background-color: $firstColor;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -124,46 +196,46 @@ $lightGreen : #b9e7e7;
 
         //HOME
 
-        .home{
-            .posts{
+        .home {
+            .posts {
                 margin-top: 50px;
                 display: flex;
                 flex-direction: column;
                 gap: 150px;
 
-                .post{
+                .post {
                     display: flex;
                     gap: 100px;
 
-                    &:nth-child(2n+1){
+                    &:nth-child(2n+1) {
                         flex-direction: row-reverse;
                     }
 
-                    .img{
+                    .img {
                         flex: 2;
 
-                        img{
+                        img {
                             width: 100%;
                             max-height: 400px;
                             object-fit: cover;
                         }
                     }
 
-                    .content{
+                    .content {
                         flex: 3;
                         display: flex;
                         flex-direction: column;
                         justify-content: space-between;
 
-                        h1{
+                        h1 {
                             font-size: 48px;
                         }
 
-                        p{
+                        p {
                             font-size: 18px;
                         }
 
-                        button{
+                        button {
                             width: max-content;
                             padding: 10px 20px;
                             border: none;
@@ -172,9 +244,9 @@ $lightGreen : #b9e7e7;
                             border: 1px solid teal;
                             color: teal;
 
-                            &:hover{
+                            &:hover {
                                 border: 1ps solid white;
-                                background-color: $lightGreen;
+                                background-color: $firstColor;
                                 color: black;
                             }
                         }
@@ -185,7 +257,7 @@ $lightGreen : #b9e7e7;
 
         //SINGLE
 
-        .single{
+        .single {
             display: flex;
             gap: 70px;
 
@@ -194,83 +266,86 @@ $lightGreen : #b9e7e7;
                 display: flex;
                 flex-direction: column;
                 gap: 30px;
-                
-                img{
+
+                img {
                     width: 100%;
                     height: 300px;
                     object-fit: cover;
                 }
-            
+
                 .user {
                     display: flex;
                     align-items: center;
                     gap: 10px;
                     font-size: 14px;
+
                     img {
                         width: 50px;
                         height: 50px;
                         border-radius: 50%;
                         object-fit: cover;
                     }
-                    p{
+
+                    p {
                         margin: 0%;
                         color: rgb(75, 71, 71);
                     }
 
-                    span{
+                    span {
                         font-weight: bold;
                     }
 
                 }
 
-                .edit{
+                .edit {
                     display: flex;
                     gap: 5px;
 
-                    img{
+                    img {
                         width: 20px;
                         height: 20px;
                         cursor: pointer;
                     }
                 }
 
-                h1{
+                h1 {
                     font-size: 42px;
                     color: #333;
                 }
 
-                p{
+                p {
                     text-align: justify;
                     line-height: 30px;
                 }
             }
-            .menu{
+
+            .menu {
                 flex: 2;
                 display: flex;
                 flex-direction: column;
                 gap: 25px;
 
-                h1{
+                h1 {
                     font-size: 20px;
                     color: #555;
                 }
 
-                .post{
+                .post {
                     display: flex;
                     flex-direction: column;
                     gap: 10px;
 
-                    img{
+                    img {
                         width: 100%;
                         height: 200px;
                         object-fit: cover;
                     }
 
-                    h2{
+                    h2 {
                         color: #555;
                     }
 
-                    button{
+                    button {
                         width: max-content;
                         padding: 7.5px 15px;
                         border: none;
@@ -279,9 +354,9 @@ $lightGreen : #b9e7e7;
                         border: 1px solid teal;
                         color: teal;
 
-                        &:hover{
+                        &:hover {
                             border: 1ps solid white;
-                            background-color: $lightGreen;
+                            background-color: $firstColor;
                             color: black;
                         }
                     }
@@ -293,40 +368,41 @@ $lightGreen : #b9e7e7;
 
         //WRITE
 
-        .add{
+        .add {
             margin-top: 20px;
             display: flex;
             gap: 20px;
 
-            .content{
+            .content {
                 flex: 5;
                 display: flex;
                 flex-direction: column;
                 gap: 20px;
 
-                input{
+                input {
                     padding: 10px;
                     border: 1px solid lightgray;
                 }
 
-                .editorContainer{
+                .editorContainer {
                     height: 300px;
                     overflow: scroll;
                     border: 1px solid lightgray;
                 }
 
-                .editor{
+                .editor {
                     height: 100%;
                     border: none;
                 }
             }
-            .menu{
+
+            .menu {
                 flex: 2;
                 display: flex;
                 flex-direction: column;
                 gap: 20px;
 
-                .item{
+                .item {
                     border: 1px solid lightgray;
                     padding: 10px;
                     flex: 1;
@@ -337,27 +413,28 @@ $lightGreen : #b9e7e7;
                     color: #555;
 
 
-                    h1{
+                    h1 {
                         font-size: 20px;
                     }
 
-                    .file{
+                    .file {
                         text-decoration: underline;
                         cursor: pointer;
                     }
 
-                    .buttons{
+                    .buttons {
                         display: flex;
                         justify-content: space-between;
 
-                        :first-child{
+                        :first-child {
                             cursor: pointer;
                             color: teal;
                             background-color: white;
                             border: 1px solid teal;
                             padding: 3px 5px;
                         }
-                        :last-child{
+
+                        :last-child {
                             cursor: pointer;
                             color: teal;
                             background-color: white;
@@ -366,7 +443,7 @@ $lightGreen : #b9e7e7;
                         }
                     }
 
-                    .cat{
+                    .cat {
                         display: flex;
                         align-items: center;
                         gap: 2px;

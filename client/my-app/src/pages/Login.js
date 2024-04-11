@@ -1,10 +1,10 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
 
-const Login = () => {
+
+const LoginPage = () => {
   const [inputs, setInputs] = useState({
     username: "",
     password: "",
@@ -30,7 +30,7 @@ const Login = () => {
   };
   return (
     <div className="auth">
-      <h1>Login</h1>
+      <h1 className="authTitle">Login</h1>
       <form>
         <input
           required
@@ -46,14 +46,14 @@ const Login = () => {
           name="password"
           onChange={handleChange}
         />
-        <button onClick={handleSubmit}>Login</button>
+        <button className="authButton" onClick={handleSubmit}>Login</button>
         {err && <p>{err}</p>}
         <span>
-          Don't you have an account? <Link to="/register">Register</Link>
+          Don't you have an account? <Link to="/register">Sign up</Link>
         </span>
       </form>
     </div>
   );
 };
 
-export default Login;
+export default LoginPage;

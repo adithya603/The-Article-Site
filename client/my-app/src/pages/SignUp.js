@@ -41,9 +41,9 @@ function SignUp(){
             <input required type='text' placeholder='Username' name='username' onChange={handleChange} />
             <input required type='email' placeholder='email' name='email' onChange={handleChange} />
             <input required type='password' placeholder='Password' name='password' onChange={handleChange} />
-            <button onClick={handleClick}>SignUp</button>
+            <button className='authButton' onClick={handleClick}>SignUp</button>
             {err && <p>{err}</p>}
-            <span>Already have an accout?<Link to="/login">Login </Link></span>
+            <span>Already have an accout?<Link to="/login"> Login </Link></span>
         </form>
         
     </div>

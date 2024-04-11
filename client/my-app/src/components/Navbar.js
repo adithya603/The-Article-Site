@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
+import Button from '@mui/material/Button';
 
 const Navbar = () => {
   const { currentUser, logout } = useContext(AuthContext);
@@ -8,11 +9,11 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="container">
-          <div className='logo'>
-          <Link to="/">
-            <h1>The Journal Site</h1>
+        <div className='logo'>
+          <Link className="link" to="/">
+            <h1 className="navTitle" >ARTICLE</h1>
           </Link>
-          </div>
+        </div>
         <div className="links">
           <Link className="link" to="/?cat=art">
             <h6>ART</h6>
@@ -26,21 +27,20 @@ const Navbar = () => {
           <Link className="link" to="/?cat=cinema">
             <h6>CINEMA</h6>
           </Link>
-          <Link className="link" to="/?cat=design">
-            <h6>DESIGN</h6>
-          </Link>
-          <Link className="link" to="/?cat=food">
-            <h6>FOOD</h6>
-          </Link>
-          <span>{currentUser?.username}</span>
+          <span style={{color: "white"}}>{currentUser?.username}</span>
           {currentUser ? (
-            <span onClick={logout}>Logout</span>
+            <span style={{color: "white"}} onClick={logout}>Logout</span>
           ) : (
-            <Link className="link" to="/login">
-              Login
-            </Link>
+              <div><Link className="link " to="/login">
+                <Button className="loginButton1" sx={{ backgroundColor: "#F2613F", color: "#0C0C0C" }} variant="contained">Login</Button>
+              </Link>
+                <Link className="link " to="/signUp">
+                  <Button className="loginButton2 " sx={{ backgroundColor: "white", color: "#F2613F" }} variant="outlined">sign up</Button>
+                </Link>
+              </div>
+            
           )}
-          <span className="write">
+          <span style={{color: "white"}} className="write">
             <Link className="link" to="/write">
               Write
             </Link>
