@@ -13,6 +13,7 @@ import Write from './pages/Write';
 import Single from './pages/Single';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import User from './pages/User';
 import "./style.scss"
 
 const Layout = () => {
@@ -51,6 +52,10 @@ const Router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignUp />,
+  },
+  {
+    path:"/user",
+    element: <User />,
   },
 ]);
 

@@ -1,9 +1,13 @@
-$firstColor : #F2613F;
+$firstColor : #F2613F; //#F2613F
 $secondColor : #0C0C0C; //#00246B;
+$thirdColor: #f2783f;
 
 body {
     font-family: "Roboto", sans-serif;
+    background-image: url("./images/Orange\ Fun.jpg");
+    background-image: -moz-linear-gradient();
     margin: 0;
+
 }
 
 .app {
@@ -11,12 +15,18 @@ body {
     // display: flex;
     // justify-content: center;
 
+    //LOGIN AND SIGN UP
     .container {
 
         .link {
             text-decoration: none;
             color: inherit;
+
+            &:hover {
+                color: white;
+            }
         }
+
 
         .auth {
             display: flex;
@@ -24,7 +34,7 @@ body {
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: $firstColor;
+            background-image: url("./images/Orange\ Fun.jpg");
         }
 
         h1 {
@@ -39,29 +49,21 @@ body {
             padding: 40px;
             background-color: white;
             border-radius: 8px;
-            /* Added a border radius */
             box-shadow: 5 4px 6px rgba(0, 0, 0, 0.1);
-            /* Added a subtle shadow */
             width: 300px;
-            /* Adjusted width for better spacing */
             gap: 20px;
         }
 
         input {
             padding: 13px;
             border: 2px solid #ccc;
-            /* Lighter border */
             border-radius: 5px;
-            /* Rounded borders for inputs */
             transition: border-color 0.3s;
-            /* Smooth transition for focus */
         }
 
         input:focus {
             border-color: var(--secondColor);
-            /* Highlight focus */
             outline: none;
-            /* Remove default focus outline */
         }
 
         .authButton {
@@ -69,22 +71,18 @@ body {
             border: none;
             background-color: $secondColor;
             color: white;
-            /* Ensure text is visible on button */
             cursor: pointer;
             border-radius: 5px;
-            /* Match input border-radius */
             transition: background-color 0.3s;
-            /* Smooth background transition */
         }
 
         .authButton:hover {
-            background-color: darken($firstColor, 10%);
-            /* Slightly darker on hover */
+            background-color: darken(#f2783f, 10%);
         }
 
         p {
             font-size: 17px;
-            color: red;
+            // color: red;
         }
 
         span {
@@ -92,11 +90,9 @@ body {
             text-align: center;
         }
 
-        /* Additional styles for Link */
         a {
             color: $secondColor;
             text-decoration: underline;
-            /* Make it obvious it's clickable */
         }
 
         a:hover {
@@ -131,7 +127,7 @@ body {
                     gap: 17px;
 
                     h6 {
-                        font-size: 17px;
+                        font-size: 18px;
                         font-weight: 440;
                         color: $firstColor;
 
@@ -145,19 +141,20 @@ body {
                     }
 
                     .loginButton1 {
-                        border: 2px solid $firstColor;
-                        margin-right: 13px;
+                        border: 2.5px solid #f2783f;
+                        margin-right: 14px;
+                        background-color: #f2783f;
 
                         &:hover {
                             background-color: #0C0C0C;
-                            border: 2px solid $firstColor;
-                            color: $firstColor;
+                            border: 2.5px solid #f2783f;
+                            color: #f2783f;
                         }
                     }
 
                     .loginButton2 {
                         background-color: #0C0C0C;
-                        border: 3px solid $firstColor;
+                        border: 3px solid #f2783f;
                     }
 
                     .write {
@@ -181,72 +178,93 @@ body {
             }
         }
 
-
-        //FOOTER
-
-        footer {
-            margin-top: 100px;
-            padding: 20px;
-            background-color: $firstColor;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 14px;
-        }
-
         //HOME
 
         .home {
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+
             .posts {
-                margin-top: 50px;
                 display: flex;
                 flex-direction: column;
-                gap: 150px;
+                gap: 60px;
 
                 .post {
                     display: flex;
-                    gap: 100px;
-
-                    &:nth-child(2n+1) {
-                        flex-direction: row-reverse;
-                    }
+                    gap: 50px;
+                    // align-items: center;
+                    padding: 28px;
+                    background-color: $secondColor;
+                    border-radius: 8px;
+                    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.1);
+                    width: 850px;
+                    max-width: 90%;
 
                     .img {
-                        flex: 2;
+                        flex: 1;
 
                         img {
                             width: 100%;
-                            max-height: 400px;
+                            min-height: 240px;
+                            max-height: 240px;
+                            width: auto;
                             object-fit: cover;
+                            border-radius: 9px;
                         }
                     }
 
+                    .shrink {
+                        img {
+                            transition: 1s ease;
+                        }
+
+                        img:hover {
+                            -webkit-transform: scale(0.9);
+                            -ms-transform: scale(0.9);
+                            transform: scale(0.9);
+                            transition: 0.5s ease;
+                        }
+
+
+                    }
+
                     .content {
-                        flex: 3;
+                        flex: 2;
                         display: flex;
                         flex-direction: column;
                         justify-content: space-between;
 
                         h1 {
-                            font-size: 48px;
+                            font-size: 33px;
+                            margin-bottom: 5px;
+                            margin-top: 7px;
+                            color: #f2783f;
                         }
 
                         p {
-                            font-size: 18px;
+                            font-size: 16px;
+                            line-height: 1.3;
+                            color: $firstColor;
                         }
 
-                        button {
-                            width: max-content;
-                            padding: 10px 20px;
-                            border: none;
+                        .read-more {
+                            align-self: flex-start;
+                            margin-top: 4px;
+                            margin-bottom: 5px;
+                            padding: 8px 16px;
+                            border: 1px solid $firstColor;
                             cursor: pointer;
-                            background-color: white;
-                            border: 1px solid teal;
-                            color: teal;
+                            background-color: #f2783f;
+                            color: $secondColor;
+                            border-radius: 4px;
+                            max-width: 120px;
+                            text-align: center;
+                            text-decoration: none;
 
                             &:hover {
-                                border: 1ps solid white;
-                                background-color: $firstColor;
+                                border-color: transparent;
+                                background-color: white;
                                 color: black;
                             }
                         }
@@ -269,53 +287,76 @@ body {
 
                 img {
                     width: 100%;
-                    height: 300px;
+                    height: 400px;
+                    /* Increase height for larger images */
                     object-fit: cover;
+                    border-radius: 10px;
+                    /* Add border-radius for rounded corners */
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                    /* Add box-shadow for depth */
                 }
 
                 .user {
                     display: flex;
                     align-items: center;
                     gap: 10px;
-                    font-size: 14px;
+                    font-size: 16px;
+                    /* Increase font size for better readability */
+                    color: #555;
+                    /* Update text color */
 
                     img {
-                        width: 50px;
-                        height: 50px;
+                        width: 60px;
+                        height: 60px;
                         border-radius: 50%;
                         object-fit: cover;
+                        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                        /* Add subtle box-shadow */
                     }
 
                     p {
-                        margin: 0%;
-                        color: rgb(75, 71, 71);
+                        margin: 0;
                     }
 
                     span {
                         font-weight: bold;
                     }
-
                 }
 
                 .edit {
                     display: flex;
-                    gap: 5px;
+                    gap: 10px;
+                    /* Increase gap for better spacing */
 
                     img {
-                        width: 20px;
-                        height: 20px;
+                        width: 30px;
+                        height: 30px;
                         cursor: pointer;
+                        transition: transform 0.3s ease;
+                        /* Add transition for smoother hover effect */
+                    }
+
+                    img:hover {
+                        transform: scale(1.2);
+                        /* Scale up on hover for better visibility */
                     }
                 }
 
                 h1 {
-                    font-size: 42px;
+                    font-size: 36px;
+                    /* Decrease font size for better hierarchy */
                     color: #333;
+                    /* Update text color */
                 }
 
                 p {
+                    font-size: 18px;
+                    /* Increase font size for better readability */
+                    line-height: 1.6;
+                    /* Increase line height for better spacing */
                     text-align: justify;
-                    line-height: 30px;
+                    color: #555;
+                    /* Update text color */
                 }
             }
 
@@ -452,5 +493,103 @@ body {
                 }
             }
         }
+
+        //FOOTER
+
+        footer {
+            color: $firstColor;
+            margin-top: 100px;
+            padding: 20px;
+            background-color: $secondColor;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 14px;
+        }
     }
+}
+
+///////////////
+//PROFILE ICON
+.user-icon {
+    margin-left: 10px;
+    border: 2px solid white;
+    cursor: pointer;
+    position: relative;
+    /* Position relative for dropdown */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: $firstColor;
+    /* Default background color */
+    transition: background-color 0.3s ease;
+    /* Transition for hover effect */
+}
+
+.user-icon:hover {
+    background-color: $thirdColor;
+    /* Change background color on hover */
+}
+
+.user-icon.active {
+    background-color: $thirdColor;
+    /* Change background color when active */
+}
+
+/* Adjust SVG size and color */
+.feather {
+    width: 30px;
+    height: 30px;
+    color: #222121;
+    /* Icon color */
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 7.5px);
+    /* Position below the icon */
+    left: 50%;
+    /* Center horizontally */
+    transform: translateX(-60%);
+    /* Adjust for centering */
+    width: 90px;
+    /* Wider dropdown */
+    background-color: $firstColor;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    z-index: 1;
+    /* Ensure dropdown appears above other content */
+
+    .profileOptions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.dropdown-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.dropdown-menu li {
+    cursor: pointer;
+    font-size: 16px;
+    padding: 6px 0;
+
+}
+
+.navMod {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
 }
