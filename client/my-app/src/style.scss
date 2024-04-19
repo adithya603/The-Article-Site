@@ -102,7 +102,8 @@ body {
 
         //NAVBAR
 
-        .navbar {
+        .navbar-inner {
+            position: sticky;
             padding-left: 70px;
             padding-right: 30px;
             background-color: $secondColor;
@@ -277,23 +278,25 @@ body {
 
         .single {
             display: flex;
-            gap: 70px;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
 
             .content {
                 flex: 5;
                 display: flex;
                 flex-direction: column;
-                gap: 30px;
+                gap: 21px;
+
+                width: 85%;
 
                 img {
+                    margin-top: 20px;
                     width: 100%;
-                    height: 400px;
-                    /* Increase height for larger images */
+                    height: 320px;
                     object-fit: cover;
                     border-radius: 10px;
-                    /* Add border-radius for rounded corners */
                     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                    /* Add box-shadow for depth */
                 }
 
                 .user {
@@ -345,7 +348,7 @@ body {
                 h1 {
                     font-size: 36px;
                     /* Decrease font size for better hierarchy */
-                    color: #333;
+                    color: $secondColor;
                     /* Update text color */
                 }
 
@@ -355,56 +358,92 @@ body {
                     line-height: 1.6;
                     /* Increase line height for better spacing */
                     text-align: justify;
-                    color: #555;
+                    color: $secondColor;
                     /* Update text color */
                 }
             }
 
-            .menu {
-                flex: 2;
-                display: flex;
-                flex-direction: column;
-                gap: 25px;
+            //Menu
+            .menu-outer {
 
-                h1 {
-                    font-size: 20px;
-                    color: #555;
+                .menu-header{
+                    color: rgb(54, 53, 53);
+                    margin-left: 33px;
+                    margin-bottom: 30px;
                 }
+                width: 87%;
+                h1 {
+                  font-size: 30px;
+                  color: #555;
+                }
+                .menu {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 20px;
+                    justify-content:space-around;
+              
+                  .post {
 
-                .post {
+                    flex: 0 0 calc(25% - 0px); /* Three cards in a row with 20px gap */
+                    margin-bottom: 25px;
+              
+                    @media screen and (max-width: 992px) {
+                      flex: 0 0 calc(50% - 20px); /* Two cards in a row with 20px gap */
+                    }
+              
+                    @media screen and (max-width: 576px) {
+                      flex: 0 0 calc(100% - 20px); /* One card in a row with 20px gap */
+                    }
+
                     display: flex;
                     flex-direction: column;
-                    gap: 10px;
-
+                    gap: 13px;
+                    background-color: rgb(30, 29, 29);
+              
+                    border-radius: 8px;
+                    padding: 18px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    transition: box-shadow 0.3s ease;
+              
+                    &:hover {
+                      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+                    }
+              
                     img {
-                        width: 100%;
-                        height: 200px;
-                        object-fit: cover;
+                      width: 100%;
+                      height: 200px;
+                      object-fit: cover;
+                      border-radius: 8px;
+                      border: 3px solid $thirdColor;
                     }
-
+              
                     h2 {
-                        color: #555;
+                      color: $thirdColor;
+                      font-size: 20px;
                     }
-
+              
                     button {
-                        width: max-content;
-                        padding: 7.5px 15px;
-                        border: none;
-                        cursor: pointer;
+                      width: max-content;
+                      padding: 7.5px 15px;
+                      border: none;
+                      cursor: pointer;
+                      background-color: $thirdColor;
+                      border: 2px solid $thirdColor;
+                      color: white;
+                      border-radius: 4px;
+                      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+              
+                      &:hover {
                         background-color: white;
-                        border: 1px solid teal;
-                        color: teal;
-
-                        &:hover {
-                            border: 1ps solid white;
-                            background-color: $firstColor;
-                            color: black;
-                        }
+                        color: $firstColor;
+                        border-color: white;
+                      }
                     }
-
-
+                  }
                 }
-            }
+              }
+              
+            
         }
 
         //WRITE

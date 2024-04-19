@@ -7,7 +7,6 @@ import axios from "axios";
 import moment from "moment";
 import { useContext } from "react";
 import { AuthContext } from "../context/authContext";
-import DOMPurify from "dompurify";
 
 const Single = () => {
   const [post, setPost] = useState({});
@@ -40,23 +39,18 @@ const Single = () => {
     }
   }
 
-  // const getText = (html) => {
-  //   const doc = new DOMParser().parseFromString(html, "text/html")
-  //   return doc.body.textContent
-  // }
-
   return (
     <div className="single">
       <div className="content">
         <img src={post?.img} alt="" />
-        <div className="user">
+        <div className="user bottom-left">
           {<img
             src={post.userImg}
             alt=""
           />}
           <div className="info">
             <span>{post.username}</span>
-            <p>Posted {moment(post.date).fromNow()}</p>
+            <p>{moment(post.date).fromNow()}</p>
           </div>
           {currentUser.username === post.username && (
             <div className="edit">
@@ -68,12 +62,8 @@ const Single = () => {
           )}
         </div>
         <h1>{post.title}</h1>
-        <p
-          dangerouslySetInnerHTML={{
-            __html: DOMPurify.sanitize(post.desc),
-          }}
-        ></p>      
-        </div>
+        <p>{post.desc}</p>
+      </div>
       <Menu cat={post.cat} />
     </div>
   );

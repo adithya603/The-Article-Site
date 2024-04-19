@@ -67,18 +67,14 @@ function Write(){
         
         <div className='item'>
           <h1>Category</h1>
-          <div className='cat'><input type='radio' checked={cat === "art"} name='cat' value="art" id="art" onChange={e=> setCat(e.target.value)}/>
-          <label htmlFor='art'>Art</label></div>
-          <div className='cat'><input type='radio' checked={cat === "science"} name='cat' value="science" id="science" onChange={e=> setCat(e.target.value)}/>
-          <label htmlFor='science'>Science</label></div>
-          <div className='cat'><input type='radio' checked={cat === "technology"} name='cat' value="technology" id="technology" onChange={e=> setCat(e.target.value)}/>
-          <label htmlFor='technology'>Technology</label></div>
+          <div className='cat'><input type='radio' checked={cat === "life"} name='cat' value="life" id="life" onChange={e=> setCat(e.target.value)}/>
+          <label htmlFor='art'>Life</label></div>
+          <div className='cat'><input type='radio' checked={cat === "sports"} name='cat' value="sports" id="sports" onChange={e=> setCat(e.target.value)}/>
+          <label htmlFor='science'>Sports</label></div>
           <div className='cat'><input type='radio' checked={cat === "cinema"} name='cat' value="cinema" id="cinema" onChange={e=> setCat(e.target.value)}/>
           <label htmlFor='cinema'>Cinema</label></div>
-          <div className='cat'><input type='radio' checked={cat === "design"} name='cat' value="design" id="design" onChange={e=> setCat(e.target.value)}/>
-          <label htmlFor='design'>Design</label></div>
-          <div className='cat'><input type='radio' checked={cat === "food"} name='cat' value="food" id="food" onChange={e=> setCat(e.target.value)}/>
-          <label htmlFor='food'>Food</label></div>
+          <div className='cat'><input type='radio' checked={cat === "literature"} name='cat' value="literature" id="literature" onChange={e=> setCat(e.target.value)}/>
+          <label htmlFor='technology'>Literature</label></div>
         </div>
         
       </div>
