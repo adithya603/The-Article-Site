@@ -9,75 +9,66 @@ import moment from 'moment';
 
 //npm i react-quill for text editor
 
-function Write(){
+function Write() {
 
   const state = useLocation().state
   const [title, setTitle] = useState(state?.title || "");
   const [desc, setDesc] = useState(state?.desc || "")
-  const [img, setImg] = useState(null)
+  const [shortDesc, setShortDesc] = useState(state?.shortDesc || "This is Description for this Article, the Short description goes here")
+  const [img, setImg] = useState(state?.img || "")
   const [cat, setCat] = useState(state?.cat || "")
 
   const navigate = useNavigate()
 
-  const handleSubmit = async (e)=>{
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
-    try{
+    try {
       state ? await axios.put(`posts/${state.id}`, {
-        title, desc, cat, 
+        title, img, shortDesc, desc, cat
       })
-      : await axios.post(`/posts/`, {
-        title, desc, cat, img: "",
-        date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
-      });
+        : await axios.post(`/posts/`, {
+          title, img, shortDesc, desc, cat, 
+          date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
+        });
       navigate("/")
-    }catch(err){
+    } catch (err) {
       console.log(err)
     }
   }
   return (
     <div className='add'>
       <div className='content'>
-        <input type='text' value={title} placeholder='title' onChange={e=> setTitle(e.target.value)} />
+        
+        <input type='text' value={title} placeholder='Title of the Article' onChange={e => setTitle(e.target.value)} />
+
+        <input type='text' value={img} placeholder='Image URL' onChange={e => setImg(e.target.value)} />
+
+        <input className='about-article' type='text' value={shortDesc} placeholder='About the Article' onChange={e => setShortDesc(e.target.value)} />
+
         <div className='editorContainer'>
           <ReactQuill className='editor' theme='snow' value={desc} onChange={setDesc} />
         </div>
       </div>
 
       <div className='menu'>
+
         <div className='item'>
-          <h1>Publish</h1>
-          <div className='options'>
-            <span>
-              <b>Status: </b> Draft
-            </span>
-            <br></br>
-            <span>
-              <b>Visibility:</b> Public
-            </span>
-            
-          </div>
-          <input style={{display:"none"}} type='file' id='file' name='' onChange={e=> setImg(e.target.files[0])}/>
-          <label className='file' htmlFor='file'>Upload image</label>
-          <div className='buttons'>
-            <button>Save as draft</button>
-            <button onClick={handleSubmit}>Publish</button>
-          </div>
+          <h1>Category: </h1>
+          <div className='cat'><input type='radio' checked={cat === "life"} name='cat' value="life" id="life" onChange={e => setCat(e.target.value)} />
+            <label htmlFor='art'>Life</label></div>
+          <div className='cat'><input type='radio' checked={cat === "sports"} name='cat' value="sports" id="sports" onChange={e => setCat(e.target.value)} />
+            <label htmlFor='science'>Sports</label></div>
+          <div className='cat'><input type='radio' checked={cat === "cinema"} name='cat' value="cinema" id="cinema" onChange={e => setCat(e.target.value)} />
+            <label htmlFor='cinema'>Cinema</label></div>
+          <div className='cat'><input type='radio' checked={cat === "literature"} name='cat' value="literature" id="literature" onChange={e => setCat(e.target.value)} />
+            <label htmlFor='technology'>Literature</label></div>
+
+          <button onClick={handleSubmit}>Publish</button>
+
         </div>
-        
-        <div className='item'>
-          <h1>Category</h1>
-          <div className='cat'><input type='radio' checked={cat === "life"} name='cat' value="life" id="life" onChange={e=> setCat(e.target.value)}/>
-          <label htmlFor='art'>Life</label></div>
-          <div className='cat'><input type='radio' checked={cat === "sports"} name='cat' value="sports" id="sports" onChange={e=> setCat(e.target.value)}/>
-          <label htmlFor='science'>Sports</label></div>
-          <div className='cat'><input type='radio' checked={cat === "cinema"} name='cat' value="cinema" id="cinema" onChange={e=> setCat(e.target.value)}/>
-          <label htmlFor='cinema'>Cinema</label></div>
-          <div className='cat'><input type='radio' checked={cat === "literature"} name='cat' value="literature" id="literature" onChange={e=> setCat(e.target.value)}/>
-          <label htmlFor='technology'>Literature</label></div>
-        </div>
-        
       </div>
+
     </div>
   )
 }

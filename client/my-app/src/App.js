@@ -15,6 +15,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import User from './pages/User';
 import "./style.scss"
+import NavbarSingle from './components/NavbarSingle';
 
 const Layout = () => {
   return(
@@ -36,14 +37,14 @@ const Router = createBrowserRouter([
         element: <HomePage />
       },
       {
-        path: "/post/:id", 
-        element: <Single />
-      },
-      {
         path: "/write", 
         element: <Write />
       },
     ]
+  },
+  {
+    path: "/post/:id", 
+    element: <div><NavbarSingle /><Single /></div>
   },
   {
     path: "/login",

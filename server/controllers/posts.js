@@ -29,12 +29,13 @@ export const addPost = (req, res) => {
     if (err) return res.status(403).json("Token is not valid!");
 
     const q =
-      "INSERT INTO posts(`title`, `desc`, `img`, `cat`, `date`,`uid`) VALUES (?)";
+      "INSERT INTO posts(`title`,`img`,`shortDesc`, `desc`, `cat`, `date`,`uid`) VALUES (?)";
 
     const values = [
       req.body.title,
-      req.body.desc,
       req.body.img,
+      req.body.shortDesc,
+      req.body.desc,
       req.body.cat,
       req.body.date,
       userInfo.id,
@@ -73,9 +74,9 @@ export const updatePost = (req, res) => {
     if (err) return res.status(403).json("Token is not valid!");
 
     const postId = req.params.id;
-    const q = "UPDATE posts SET `title`=?,`desc`=?,`cat`=? WHERE `id` = ? AND `uid` = ?";
+    const q = "UPDATE posts SET `title`=?,`img`=?,`shortDesc`=?,`desc`=?,`cat`=? WHERE `id` = ? AND `uid` = ?";
 
-    const values = [req.body.title, req.body.desc, req.body.cat];
+    const values = [req.body.title, req.body.img, req.body.shortDesc, req.body.desc, req.body.cat];
 
     db.query(q, [...values, postId, userInfo.id], (err, data) => {
       if (err) return res.status(500).json(err);

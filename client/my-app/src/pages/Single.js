@@ -7,6 +7,7 @@ import axios from "axios";
 import moment from "moment";
 import { useContext } from "react";
 import { AuthContext } from "../context/authContext";
+import userImg from "../images/userImg2.png"
 
 const Single = () => {
   const [post, setPost] = useState({});
@@ -42,12 +43,13 @@ const Single = () => {
   return (
     <div className="single">
       <div className="content">
+        <h1>{post.title}</h1>
         <img src={post?.img} alt="" />
-        <div className="user bottom-left">
-          {<img
-            src={post.userImg}
+        <div className="user">
+          {<Link to="/user"><img
+            src={userImg}
             alt=""
-          />}
+          /></Link>}
           <div className="info">
             <span>{post.username}</span>
             <p>{moment(post.date).fromNow()}</p>
@@ -61,8 +63,8 @@ const Single = () => {
             </div>
           )}
         </div>
-        <h1>{post.title}</h1>
-        <p>{post.desc}</p>
+        
+        <div dangerouslySetInnerHTML={{ __html: post.desc }} /> {/* //to avoid being enclosed by the p tag */}
       </div>
       <Menu cat={post.cat} />
     </div>
@@ -70,4 +72,3 @@ const Single = () => {
 };
 
 export default Single;
-

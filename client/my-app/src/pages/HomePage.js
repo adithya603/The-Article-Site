@@ -38,7 +38,7 @@ const HomePage = () => {
                   {post.title}
                 </Link>
               </h1>
-              <p>{getText(post.desc)}</p>
+              <p>{getText(post.shortDesc)}</p>
               <Link className="read-more" to={`/post/${post.id}`}>
                 Read More
               </Link>
