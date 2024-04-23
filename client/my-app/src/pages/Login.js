@@ -49,7 +49,7 @@ const LoginPage = () => {
         <button className="authButton" onClick={handleSubmit}>Login</button>
         {err && <p>{err}</p>}
         <span>
-          Don't you have an account? <Link to="/register">Sign up</Link>
+          Don't have an account? <Link to="/signup">Sign up</Link>
         </span>
       </form>
     </div>

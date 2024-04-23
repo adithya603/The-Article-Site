@@ -1,19 +1,17 @@
-$firstColor : #F2613F; //#F2613F
-$secondColor : #0C0C0C; //#00246B;
-$thirdColor: #f2783f;
+$firstColor : #000000; //#F2613F
+$secondColor : #1A1A1A;
+$thirdColor : #2C2C2C; //#00246B;
+$fourthColor: #8c8c8c; //#f2783f
+$hoverColor : #A3A3A3;
 
 body {
-    font-family: "Roboto", sans-serif;
-    background-image: url("./images/Orange\ Fun.jpg");
-    background-image: -moz-linear-gradient();
+    font-family: "Prompt", sans-serif;
+    background-color: $firstColor;
     margin: 0;
 
 }
 
 .app {
-
-    // display: flex;
-    // justify-content: center;
 
     //LOGIN AND SIGN UP
     .container {
@@ -23,7 +21,7 @@ body {
             color: inherit;
 
             &:hover {
-                color: white;
+                color: rgb(197, 195, 195);
             }
         }
 
@@ -34,12 +32,12 @@ body {
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-image: url("./images/Orange\ Fun.jpg");
+            background-color: $firstColor;
         }
 
         h1 {
             font-size: 35px;
-            color: $secondColor;
+            color: white;
             margin-bottom: 20px;
         }
 
@@ -47,7 +45,7 @@ body {
             display: flex;
             flex-direction: column;
             padding: 40px;
-            background-color: white;
+            background-color: #595959;
             border-radius: 8px;
             box-shadow: 5 4px 6px rgba(0, 0, 0, 0.1);
             width: 300px;
@@ -56,13 +54,13 @@ body {
 
         input {
             padding: 13px;
-            border: 2px solid #ccc;
+            border: 1.2px solid black;
             border-radius: 5px;
             transition: border-color 0.3s;
         }
 
         input:focus {
-            border-color: var(--secondColor);
+            border-color: $secondColor;
             outline: none;
         }
 
@@ -77,16 +75,16 @@ body {
         }
 
         .authButton:hover {
-            background-color: darken(#f2783f, 10%);
+            background-color: rgb(47, 47, 47);
         }
 
         p {
-            font-size: 17px;
+            font-size: 19px;
             // color: red;
         }
 
         span {
-            font-size: 12px;
+            font-size: 15px;
             text-align: center;
         }
 
@@ -111,8 +109,12 @@ body {
             .logo {
                 .navTitle {
                     font-size: 34px;
-                    color: $firstColor;
+                    color: white;
                     font-family: "Rubik Mono One", monospace;
+
+                    &:hover{
+                        color: $hoverColor;
+                    }
                 }
             }
 
@@ -129,11 +131,12 @@ body {
 
                     h6 {
                         font-size: 18px;
-                        font-weight: 440;
-                        color: $firstColor;
+                        font-weight: 180;
+                        color: white;
+                        font-family: "Rubik Mono One", monospace;
 
                         &:hover {
-                            color: white;
+                            text-decoration: underline;
                         }
                     }
 
@@ -141,38 +144,28 @@ body {
                         cursor: pointer;
                     }
 
-                    .loginButton1 {
-                        border: 2.5px solid #f2783f;
-                        margin-right: 14px;
-                        background-color: #f2783f;
+                    .loginButton2 {
+                        border: 2.5px solid $fourthColor;
+                        background-color: $fourthColor;
+                        color: $secondColor;
 
                         &:hover {
-                            background-color: #0C0C0C;
-                            border: 2.5px solid #f2783f;
-                            color: #f2783f;
+                            background-color: $thirdColor;
+                            border: 2.5px solid white;
+                            color: white;
                         }
                     }
 
-                    .loginButton2 {
-                        background-color: #0C0C0C;
-                        border: 3px solid #f2783f;
-                    }
+                    .loginButton1 {
+                        background-color: $thirdColor;
+                        margin-right: 14px;
+                        border: 3px solid white;
+                        color: white;
 
-                    .write {
-                        background-color: $firstColor;
-                        width: 50px;
-                        height: 50px;
-                        border-radius: 50%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-weight: 300;
-                        border: 1px solid white;
-
-                        &:hover {
-                            color: teal;
-                            background-color: white;
-                            border: 1px solid teal;
+                        &:hover{
+                            background-color: $fourthColor;
+                            border: 3px solid $fourthColor;
+                            color: $secondColor;
                         }
                     }
                 }
@@ -191,16 +184,23 @@ body {
             .posts {
                 display: flex;
                 flex-direction: column;
+                align-items: center;
                 gap: 60px;
 
+                .topPosts{
+                    margin-top: 40px;
+                    color: rgb(225, 223, 223);
+                    font-family: "Rubik Mono One", monospace;
+                    font-weight: 340;
+                }
                 .post {
                     display: flex;
                     gap: 50px;
                     // align-items: center;
                     padding: 28px;
-                    background-color: $secondColor;
+                    background-color: $thirdColor;
                     border-radius: 8px;
-                    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.1);
+                    box-shadow: 0 3px 7px $secondColor;
                     width: 850px;
                     max-width: 90%;
 
@@ -239,27 +239,32 @@ body {
                         justify-content: space-between;
 
                         h1 {
-                            font-size: 33px;
+                            font-size: 27px;
                             margin-bottom: 5px;
-                            margin-top: 7px;
-                            color: #f2783f;
+                            margin-top: 3px;
+                            color: white;
+                            
+
+                            &:hover{
+                                color: $hoverColor;  //not working
+                            }
                         }
 
                         p {
                             font-size: 16px;
                             line-height: 1.3;
-                            color: $firstColor;
+                            color: #e0dbdb;
                         }
 
                         .read-more {
                             align-self: flex-start;
                             margin-top: 4px;
-                            margin-bottom: 5px;
+                            margin-bottom: 9px;
                             padding: 8px 16px;
-                            border: 1px solid $firstColor;
+                            border: 1px solid rgb(201, 199, 199);
                             cursor: pointer;
-                            background-color: #f2783f;
-                            color: $secondColor;
+                            background-color: rgb(201, 199, 199);
+                            color: black;
                             border-radius: 4px;
                             max-width: 120px;
                             text-align: center;
@@ -267,7 +272,7 @@ body {
 
                             &:hover {
                                 border-color: transparent;
-                                background-color: white;
+                                background-color: $fourthColor;
                                 color: black;
                             }
                         }
@@ -283,6 +288,7 @@ body {
             flex-direction: column;
             align-items: center;
             gap: 40px;
+            background-color: $thirdColor;
 
             .content {
                 flex: 5;
@@ -299,7 +305,7 @@ body {
                     object-fit: cover;
                     border-radius: 10px;
                     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                    border: 1px solid black;
+                    border: 1px solid white;
                 }
 
                 .user {
@@ -307,10 +313,9 @@ body {
                     align-items: center;
                     gap: 15px;
                     font-size: 16px;
-                    /* Increase font size for better readability */
                     color: #555;
-                    /* Update text color */
                     margin-bottom: 10px;
+                    margin-top: 12px;
 
                     img {
                         width: 50px;
@@ -318,60 +323,52 @@ body {
                         border-radius: 50%;
                         object-fit:fill;
                         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-                        border: 1px solid black;
-                        background-color: $thirdColor;
-                        /* Add subtle box-shadow */
+                        border: 1px solid rgb(198, 195, 195);
+                        background-color: rgb(226, 225, 225);
                         &:hover{
                             cursor: pointer;
-                            background-color: $firstColor;
+                            background-color: $fourthColor;
                         }
                     }
 
                     p {
                         margin: 0;
+                        font-size: 14px;
                     }
 
                     span {
                         font-weight:700;
                         font-size: 20px;
-                        color: $secondColor;
+                        color: rgb(226, 225, 225);
                     }
                 }
 
                 .edit {
                     display: flex;
                     gap: 10px;
-                    /* Increase gap for better spacing */
 
                     img {
                         width: 30px;
                         height: 30px;
                         cursor: pointer;
                         transition: transform 0.3s ease;
-                        /* Add transition for smoother hover effect */
                     }
 
                     img:hover {
                         transform: scale(1.2);
-                        /* Scale up on hover for better visibility */
                     }
                 }
 
                 h1 {
                     font-size: 36px;
-                    /* Decrease font size for better hierarchy */
-                    color: $secondColor;
-                    /* Update text color */
+                    color: white;
                 }
 
                 p {
-                    font-size: 18px;
-                    /* Increase font size for better readability */
-                    line-height: 1.6;
-                    /* Increase line height for better spacing */
+                    font-size: 19px;
+                    line-height: 1.7;
                     text-align: justify;
-                    color: $secondColor;
-                    /* Update text color */
+                    color: rgb(227, 219, 219);
                 }
             }
 
@@ -379,14 +376,14 @@ body {
             .menu-outer {
 
                 .menu-header{
-                    color: rgb(54, 53, 53);
+                    color: rgb(225, 225, 225);
                     margin-left: 15px;
                     margin-bottom: 30px;
                 }
                 width: 87%;
                 h1 {
                   font-size: 30px;
-                  color: #555;
+                  color: white;
                 }
                 .menu {
                     display: flex;
@@ -418,7 +415,7 @@ body {
                     transition: box-shadow 0.3s ease;
               
                     &:hover {
-                      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+                      box-shadow: 0 6px 12px $secondColor;
                     }
               
                     img {
@@ -426,11 +423,11 @@ body {
                       height: 200px;
                       object-fit: cover;
                       border-radius: 8px;
-                      border: 3px solid $thirdColor;
+                      border: 3px solid rgb(182, 177, 177);
                     }
               
                     h2 {
-                      color: $thirdColor;
+                      color: rgb(222, 217, 217);
                       font-size: 20px;
                     }
               
@@ -439,16 +436,16 @@ body {
                       padding: 7.5px 15px;
                       border: none;
                       cursor: pointer;
-                      background-color: $thirdColor;
-                      border: 2px solid $thirdColor;
-                      color: white;
+                      background-color: rgb(222, 217, 217);
+                      border: 2px solid rgb(222, 217, 217);
+                      color: black;
                       border-radius: 4px;
                       transition: background-color 0.3s, color 0.3s, border-color 0.3s;
               
                       &:hover {
-                        background-color: white;
-                        color: $firstColor;
-                        border-color: white;
+                        background-color: $fourthColor;
+                        color: white;
+                        border-color: $fourthColor;
                       }
                     }
                   }
@@ -464,57 +461,80 @@ body {
             margin-top: 20px;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 18.8px;
             align-items: center;
-            width: 70%;
-            margin: 0 auto;
+            width: 100%;
+            margin: 0;
+            background-color: $thirdColor;
           
             .content {
-              flex: 5;
+              margin-top: 28px;
+              flex: 3;
               display: flex;
               flex-direction: column;
               align-items: center;
               gap: 20px;
-              width: 100%;
+              width: 60%;
           
               input {
                 padding: 10px;
                 width: 100%;
-                border: 1px solid lightgray;
-                border-radius: 5px;
-                font-size: 16px;
+                border: 1px solid black;
+                border-radius: 10px;
+                font-size: 14px;
+                background-color: $fourthColor;
+                color: black;
           
                 &.about-article {
-                  height: 35px;
+                  height: 28px;
+                }
+          
+                &::placeholder {
+                  color: rgb(82, 82, 82);
                 }
               }
           
               .editorContainer {
-                height: 250px;
-                overflow: scroll; /* Bringing back the scrollbar */
-                width: 100%;
-                border: 1px solid lightgray;
-                border-radius: 5px;
-                background-color: #f5f5f5; /* Added background color to the editor container */
+                height: 240px;
+                overflow: auto;
+                width: 102%;
+                border: 1px solid black;
+                border-radius: 15px;
+                background-color: #737272;
           
                 .ql-editor {
                   height: 100%;
                   border: none;
                   font-size: 16px;
-                  background-color: #f5f5f5; /* Added background color to the editor */
+                  background-color: #8c8c8c;
+                }
+          
+                &::-webkit-scrollbar {
+                  width: 9.3px;
+                }
+          
+                &::-webkit-scrollbar-thumb {
+                  background-color: #b4b4b4;
+                  border-radius: 10px;
+                }
+          
+                &::-webkit-scrollbar-track {
+                  background-color: #1d1c1c;
+                  border-radius: 10px;
                 }
               }
             }
           
             .menu {
-              flex: 2;
+              flex: 1;
               display: flex;
               flex-direction: column;
-              gap: 20px;
-              width: 100%;
+              align-items: center;
+              justify-content: center;
+              gap: 25px;
           
               .item {
-                padding: 10px;
+                padding: 15px;
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
@@ -531,8 +551,9 @@ body {
                 .cat {
                   display: flex;
                   align-items: center;
-                  gap: 8px;
-                  color: teal;
+                  gap: 0px;
+                  color: white;
+                  margin-right: 15px;
           
                   input[type="radio"] {
                     width: 18px;
@@ -543,40 +564,50 @@ body {
               }
           
               button {
-                padding: 8px 16px; /* Reduced button size */
-                background-color: teal;
+                margin-left: 30px;
+                padding: 08px;
+                width: 20px;
+                background-color: rgb(122, 124, 124);
                 color: white;
                 border: none;
-                border-radius: 5px;
+                border-radius: 6px;
                 cursor: pointer;
                 transition: background-color 0.3s;
                 font-size: 16px;
-                width: 100%;
+                width: 20%;
           
                 &:hover {
-                  background-color: #0e8a6a;
+                  background-color: rgb(91, 91, 91);
+                  color: rgb(216, 216, 216);
                 }
               }
             }
           }
           
-          
-          
-          
-          
-          
 
         //FOOTER
 
         footer {
-            color: $firstColor;
-            margin-top: 100px;
+            color: white;
+            margin-top: 90px;
             padding: 20px;
+            padding-left: 40px;
             background-color: $secondColor;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            font-size: 14px;
+            font-size: 16px;
+            font-weight: 500;
+            font-family: "Rubik Mono One", monospace;
+
+            .right-foot{
+                font-family: "Prompt", sans-serif;
+                margin-right: 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
         }
     }
 }
@@ -588,35 +619,29 @@ body {
     border: 2px solid white;
     cursor: pointer;
     position: relative;
-    /* Position relative for dropdown */
     width: 50px;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background-color: $firstColor;
-    /* Default background color */
+    background-color: $fourthColor;
     transition: background-color 0.3s ease;
-    /* Transition for hover effect */
 }
 
 .user-icon:hover {
     background-color: $thirdColor;
-    /* Change background color on hover */
 }
 
 .user-icon.active {
     background-color: $thirdColor;
-    /* Change background color when active */
 }
 
-/* Adjust SVG size and color */
+
 .feather {
     width: 30px;
     height: 30px;
     color: #222121;
-    /* Icon color */
 }
 
 /* Dropdown menu */
@@ -628,12 +653,12 @@ body {
     /* Center horizontally */
     transform: translateX(-60%);
     /* Adjust for centering */
-    width: 90px;
+    width: 80px;
     /* Wider dropdown */
-    background-color: $firstColor;
+    background-color: $fourthColor;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    padding: 10px;
+    padding: 07px;
     padding-bottom: 2px;
     padding-top: 2px;
     z-index: 1;

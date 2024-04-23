@@ -36,10 +36,6 @@ const Router = createBrowserRouter([
         path: "/", 
         element: <HomePage />
       },
-      {
-        path: "/write", 
-        element: <Write />
-      },
     ]
   },
   {
@@ -53,6 +49,10 @@ const Router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignUp />,
+  },
+  {
+    path: "/write", 
+    element: <div><Navbar /><Write /></div>
   },
   {
     path:"/user",

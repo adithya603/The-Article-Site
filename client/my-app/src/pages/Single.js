@@ -43,7 +43,7 @@ const Single = () => {
   return (
     <div className="single">
       <div className="content">
-        <h1>{post.title}</h1>
+        <h1 className="cardTitle">{post.title}</h1>
         <img src={post?.img} alt="" />
         <div className="user">
           {<Link to="/user"><img
@@ -52,7 +52,7 @@ const Single = () => {
           /></Link>}
           <div className="info">
             <span>{post.username}</span>
-            <p>{moment(post.date).fromNow()}</p>
+            <p className="moment">{moment(post.date).fromNow()}</p>
           </div>
           {currentUser.username === post.username && (
             <div className="edit">

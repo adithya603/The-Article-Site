@@ -38,14 +38,14 @@ const Navbar = () => {
             {currentUser ? (
               <div className="navMod">
                 <Link className="link " to="/write">
-                  <Button className="loginButton1" sx={{ backgroundColor: "#F2613F", color: "#0C0C0C" }} variant="contained">Post</Button>
+                  <Button className="loginButton1" variant="contained">Post</Button>
                 </Link>
                 <div className={`user-icon ${isOpen ? 'active' : ''}`} onClick={handleIconClick}>
                   <img src={usrImg} alt="Profile" className="profile-image" />
                   {isOpen && (
                     <div className="dropdown-menu">
                       <ul className="profileOptions">
-                        <li><Link to="/user" className="link">Go to profile</Link></li>
+                        <li><Link to="/user" className="link">Profile</Link></li>
                         <li><Link onClick={logout} className="link">Logout</Link></li>
                       </ul>
                     </div>
@@ -61,12 +61,6 @@ const Navbar = () => {
               </div>
 
             )}
-
-            {/* <span style={{ color: "white" }} className="write">
-            <Link className="link" to="/write">
-              Write
-            </Link>
-          </span> */}
 
           </div>
         </div>

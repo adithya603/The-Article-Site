@@ -14,7 +14,7 @@ function Write() {
   const state = useLocation().state
   const [title, setTitle] = useState(state?.title || "");
   const [desc, setDesc] = useState(state?.desc || "")
-  const [shortDesc, setShortDesc] = useState(state?.shortDesc || "This is Description for this Article, the Short description goes here")
+  const [shortDesc, setShortDesc] = useState(state?.shortDesc || "")
   const [img, setImg] = useState(state?.img || "")
   const [cat, setCat] = useState(state?.cat || "")
 
@@ -36,6 +36,7 @@ function Write() {
       console.log(err)
     }
   }
+
   return (
     <div className='add'>
       <div className='content'>

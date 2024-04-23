@@ -25,8 +25,9 @@ const HomePage = () => {
 
   return (
     <div className="home">
-    
+
       <div className="posts">
+        <h1 className="topPosts">Top Posts</h1>
         {posts.map((post) => (
           <div className="post" key={post.id}>
             <div className="img shrink">
