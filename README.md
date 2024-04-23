@@ -1,2 +1,1 @@
-# Journal-Site
-# Journal-site
+#The Article Site
