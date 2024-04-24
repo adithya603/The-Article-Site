@@ -441,6 +441,7 @@ body {
                       color: black;
                       border-radius: 4px;
                       transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+                       
               
                       &:hover {
                         background-color: $fourthColor;
@@ -625,16 +626,16 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background-color: $fourthColor;
+    background-color: #939090;
     transition: background-color 0.3s ease;
 }
 
 .user-icon:hover {
-    background-color: $thirdColor;
+    background-color: $hoverColor;
 }
 
 .user-icon.active {
-    background-color: $thirdColor;
+    background-color: $hoverColor;
 }
 
 

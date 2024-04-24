@@ -23,7 +23,7 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       await login(inputs)   //calling login function from AuthContext
-      navigate("/");
+      navigate("/home");
     } catch (err) {
       setError(err.response.data);
     }

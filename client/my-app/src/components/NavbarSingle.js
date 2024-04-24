@@ -19,7 +19,7 @@ const NavbarSingle = () => {
                 <div className="navbar-inner">
                     <div className="container">
                         <div className='logo'>
-                            <Link className="link" to="/">
+                            <Link className="link" to="/home">
                                 <h1 className="navTitle" >ARTICLE</h1>
                             </Link>
                         </div>

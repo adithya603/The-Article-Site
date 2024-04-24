@@ -2,7 +2,6 @@ import React from 'react';
 
 import {
   createBrowserRouter,
-  Outlet,
   RouterProvider,
 } from "react-router-dom";
 
@@ -17,29 +16,18 @@ import User from './pages/User';
 import "./style.scss"
 import NavbarSingle from './components/NavbarSingle';
 
-const Layout = () => {
-  return(
-    <>
-      <Navbar />
-      <Outlet />
-      <Footer />
-    </>
-  )
-}
 
 const Router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
-    children: [
-      {
-        path: "/", 
-        element: <HomePage />
-      },
-    ]
+    element: <Login />
   },
   {
-    path: "/post/:id", 
+    path: "/home",
+    element: <div><Navbar /><HomePage /><Footer /></div>
+  },
+  {
+    path: "/post/:id",
     element: <div><NavbarSingle /><Single /></div>
   },
   {
@@ -51,22 +39,23 @@ const Router = createBrowserRouter([
     element: <SignUp />,
   },
   {
-    path: "/write", 
+    path: "/write",
     element: <div><Navbar /><Write /></div>
   },
   {
-    path:"/user",
+    path: "/user",
     element: <User />,
   },
 ]);
 
 function App() {
+
   return (
-    <div className='app'>
-      <div className='container'> 
-        <RouterProvider router={Router} />
+      <div className='app'>
+        <div className='container'>
+          <RouterProvider router={Router} />
+        </div>
       </div>
-    </div>
   );
 }
 

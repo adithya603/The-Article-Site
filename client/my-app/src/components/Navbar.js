@@ -18,21 +18,21 @@ const Navbar = () => {
       <div className="navbar-inner">
         <div className="container">
           <div className='logo'>
-            <Link className="link" to="/">
+            <Link className="link" to="/home">
               <h1 className="navTitle" >ARTICLE</h1>
             </Link>
           </div>
           <div className="links">
-            <Link className="link" to="/?cat=life">
+            <Link className="link" to="/home?cat=life">
               <h6>LIFE</h6>
             </Link>
-            <Link className="link" to="/?cat=sports">
+            <Link className="link" to="/home?cat=sports">
               <h6>SPORTS</h6>
             </Link>
-            <Link className="link" to="/?cat=cinema">
+            <Link className="link" to="/home?cat=cinema">
               <h6>CINEMA</h6>
             </Link>
-            <Link className="link" to="/?cat=literature">
+            <Link className="link" to="/home?cat=literature">
               <h6>LITERATURE</h6>
             </Link>
             {currentUser ? (
