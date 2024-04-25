@@ -3,15 +3,14 @@ import postRoutes from "./routes/posts.js"
 import authRoutes from "./routes/authentication.js"
 import cors from "cors"
 import cookieParser from "cookie-parser";
-import multer from 'multer'
+import dotenv from 'dotenv';
+dotenv.config();
 
-//npm i express
-//npm i cors
-//npm i cookie-parser
-//npm i multer (to upload files)
+const port = process.env.PORT || 8800;
+
 const app = express()
 
-app.use(cors())  //still working without cors
+app.use(cors())  //works without cors
 app.use(express.json())
 app.use(cookieParser())
 
@@ -20,6 +19,6 @@ app.use(cookieParser())
 app.use("/api/auth", authRoutes)
 app.use("/api/posts", postRoutes)
 
-app.listen(8800, function(){
-    console.log("Server has started")
-})
+app.listen(port, function(){
+    console.log("Server has started on port " + port);
+});
