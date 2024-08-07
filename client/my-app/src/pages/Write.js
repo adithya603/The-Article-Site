@@ -31,7 +31,7 @@ function Write() {
           title, img, shortDesc, desc, cat, 
           date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
         });
-      navigate("/")
+      navigate("/home")
     } catch (err) {
       console.log(err)
     }

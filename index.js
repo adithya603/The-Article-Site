@@ -10,12 +10,12 @@ const port = process.env.PORT || 8800;
 
 const app = express()
 
+//middlewares
 app.use(cors())  //works without cors
 app.use(express.json())
 app.use(cookieParser())
 
-
-
+//routes
 app.use("/api/auth", authRoutes)
 app.use("/api/posts", postRoutes)
 
