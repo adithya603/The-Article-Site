@@ -49,6 +49,7 @@ export const addPost = (req, res) => {
 
 export const deletePost = (req, res) => {
   const token = req.cookies.access_token;
+  console.log("Token from cookies:", token); 
   if (!token) return res.status(401).json("Not authenticated!");
 
   jwt.verify(token, process.env.JWT_SECRET, (err, userInfo) => {
