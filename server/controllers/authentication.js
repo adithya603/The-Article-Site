@@ -48,13 +48,12 @@ export const login = (req, res) => {
         //We use JWT(json web token) to verify the user that he's the owner of the post
         //npm i jsonwebtoken
 
-        const token = jwt.sign({id: data[0].id}, process.env.JWT_SECRET)  //claim and secret key as parameters
-
+        const token = jwt.sign({id: data[0].id}, process.env.JWT_SECRET)  //claim(payload) and secret key as parameters
+        //the header is implicitely handled by the jwt, it contains the algo used
         const {password, ...other} = data[0] //seperating password
         res.cookie("access_token", token, {
             httpOnly: true   //httpOnly type of cookie
         }).status(200).json(other)
-
     })
 }
 
