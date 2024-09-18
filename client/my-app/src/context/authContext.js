@@ -21,7 +21,7 @@ export const AuthContexProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        localStorage.setItem("user", JSON.stringify(currentUser));     //converting from object to string
+        localStorage.setItem("user", JSON.stringify(currentUser));     //converting from object to a string
     }, [currentUser]);
 
     return (
