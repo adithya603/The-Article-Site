@@ -5,9 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "npm-run-all --parallel start:client start:server",
-    "start:client": "cd client/my-app && npm start",
-    "start:server": "node index.js"
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
