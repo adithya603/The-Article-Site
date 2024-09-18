@@ -34,7 +34,7 @@ const NavbarSingle = () => {
                                         {isOpen && (
                                             <div className="dropdown-menu">
                                                 <ul className="profileOptions">
-                                                    <li><Link to="/user" className="link">Go to profile</Link></li>
+                                                    <li><Link to="/user" className="link">profile</Link></li>
                                                     <li><Link onClick={logout} className="link">Logout</Link></li>
                                                 </ul>
                                             </div>
