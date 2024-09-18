@@ -24,10 +24,10 @@ function Write() {
     e.preventDefault()
 
     try {
-      state ? await axios.put(`posts/${state.id}`, {
+      state ? await axios.put(`https://the-article-site.vercel.app/api/posts/${state.id}`, {
         title, img, shortDesc, desc, cat
       })
-        : await axios.post(`/posts/`, {
+        : await axios.post(`https://the-article-site.vercel.app/api/posts/`, {
           title, img, shortDesc, desc, cat, 
           date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
         });

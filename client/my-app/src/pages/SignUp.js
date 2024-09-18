@@ -27,7 +27,7 @@ function SignUp(){
   const handleClick = async (e) =>{
     e.preventDefault()
     try{
-      await axios.post("/auth/signup", inputs)
+      await axios.post("https://the-article-site.vercel.app/api/auth/signup", inputs)
       navigate("/login")
     }catch(err){
       setError(err.response.data)
@@ -43,7 +43,7 @@ function SignUp(){
             <input required type='password' placeholder='Password' name='password' onChange={handleChange} />
             <button className='authButton' onClick={handleClick}>SignUp</button>
             {err && <p>{err}</p>}
-            <span>Already have an accout?<Link to="/login"> Login </Link></span>
+            <span>Already have an accout?<Link className='signup' to="/login"> Login </Link></span>
         </form>
         
     </div>

@@ -52,15 +52,17 @@ export const login = (req, res) => {
         //the header is implicitely handled by the jwt, it contains the algo used
         const {password, ...other} = data[0] //seperating password
         res.cookie("access_token", token, {
-            httpOnly: true   //httpOnly type of cookie
+            httpOnly: true,   //httpOnly type of cookie
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'None'
         }).status(200).json(other)
     })
 }
 
 export const logout = (req, res) => {
-
     res.clearCookie("access_token", {
-        sameSite:"none",
-        secure:true
-      }).status(200).json("User has been logged out.")
-}
+        httpOnly: true, // Include this if the cookie was set with httpOnly
+        sameSite: "None", // Required for cross-origin requests
+        secure: process.env.NODE_ENV === 'production' // Only set secure in production
+    }).status(200).json("User has been logged out.");
+};

@@ -9,6 +9,8 @@ const LoginPage = () => {
     username: "",
     password: "",
   });
+
+  console.log(inputs)
   const [err, setError] = useState(null);
 
   const navigate = useNavigate();
@@ -47,9 +49,9 @@ const LoginPage = () => {
           onChange={handleChange}
         />
         <button className="authButton" onClick={handleSubmit}>Login</button>
-        {err && <p>{err}</p>}
+        {err && <p>No account found!</p>}
         <span>
-          Don't have an account? <Link to="/signup">Sign up</Link>
+          Don't have an account? <Link className="signup" to="/signup">Sign up</Link>
         </span>
       </form>
     </div>

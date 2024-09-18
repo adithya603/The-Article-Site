@@ -9,7 +9,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await axios.get(`/posts${cat}`);
+        const res = await axios.get(`https://the-article-site.vercel.app/api/posts${cat}`);   //`/posts${cat}`
         setPosts(res.data);
       } catch (err) {
         console.log(err);

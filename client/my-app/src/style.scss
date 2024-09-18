@@ -50,6 +50,11 @@ body {
             box-shadow: 5 4px 6px rgba(0, 0, 0, 0.1);
             width: 300px;
             gap: 20px;
+
+            p{
+                text-align: center;
+                color: #eae1e1;
+            }
         }
 
         input {
@@ -86,6 +91,10 @@ body {
         span {
             font-size: 15px;
             text-align: center;
+
+            .signup{
+                color: white;
+            }
         }
 
         a {
