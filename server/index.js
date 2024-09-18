@@ -11,10 +11,13 @@ const port = process.env.PORT || 8800;
 const app = express()
 
 //middlewares
-// app.use(cors({
-//     origin: 'http://localhost:3000', // Change this to your frontend URL in production
-//     credentials: true, // Allow credentials (cookies)
-// }));
+// Example for Node.js/Express
+app.use(cors({
+    origin: ['http://localhost:3000', 'https://66eb20c81398367fc1375565--loquacious-manatee-219637.netlify.app'],
+    methods: ['GET', 'POST', 'OPTIONS'],
+    credentials: true // if you need to include cookies in requests
+}));
+
 app.use(express.json())
 app.use(cookieParser())
 
