@@ -24,18 +24,24 @@ function Write() {
     e.preventDefault()
 
     try {
-      state ? await axios.put(`https://the-article-site.vercel.app/api/posts/${state.id}`, {
-        title, img, shortDesc, desc, cat
-      })
-        : await axios.post(`https://the-article-site.vercel.app/api/posts/`, {
+      const config = { withCredentials: true }; // Add this for cookie support
+    
+      if (state) {
+        await axios.put(`https://the-article-site.vercel.app/api/posts/${state.id}`, {
+          title, img, shortDesc, desc, cat
+        }, config);
+      } else {
+        await axios.post(`https://the-article-site.vercel.app/api/posts/`, {
           title, img, shortDesc, desc, cat, 
           date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
-        });
-      navigate("/home")
+        }, config);
+      }
+    
+      navigate("/home");
     } catch (err) {
-      console.log(err)
+      console.log(err.response ? err.response.data : err.message);
     }
-  }
+  }    
 
   return (
     <div className='add'>

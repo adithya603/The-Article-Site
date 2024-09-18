@@ -11,7 +11,10 @@ const port = process.env.PORT || 8800;
 const app = express()
 
 //middlewares
-app.use(cors())  //works without cors
+app.use(cors({
+    origin: 'http://localhost:3000', // Change this to your frontend URL in production
+    credentials: true, // Allow credentials (cookies)
+}));
 app.use(express.json())
 app.use(cookieParser())
 

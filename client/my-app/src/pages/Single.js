@@ -33,7 +33,7 @@ const Single = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`https://the-article-site.vercel.app/api/posts/${postId}`);
+      await axios.delete(`https://the-article-site.vercel.app/api/posts/${postId}`, { withCredentials: true });
       navigate("/home")
     } catch (err) {
       console.log(err);
