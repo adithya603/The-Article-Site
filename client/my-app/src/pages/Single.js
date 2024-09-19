@@ -4,6 +4,7 @@ import Delete from "../images/delete.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Menu from "../components/Menu";
 import axios from "axios";
+import moment from "moment";
 import { useContext } from "react";
 import { AuthContext } from "../context/authContext";
 import userImg from "../images/userImg2.png"
@@ -51,7 +52,7 @@ const Single = () => {
           /></Link>}
           <div className="info">
             <span>{post.username}</span>
-            
+            <p className="moment">{moment(post.date).fromNow()}</p>
           </div>
           {currentUser.username === post.username && (
             <div className="edit">
