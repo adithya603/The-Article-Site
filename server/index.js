@@ -11,11 +11,13 @@ const port = process.env.PORT || 8800;
 const app = express()
 
 //middlewares
-// Example for Node.js/Express
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://66eb20c81398367fc1375565--loquacious-manatee-219637.netlify.app'],
-    methods: ['GET', 'POST', 'OPTIONS'],
-    credentials: true // if you need to include cookies in requests
+    origin: [
+        'http://localhost:3000', // for local development
+        'https://the-article-site-v3hl.vercel.app/' // vercel site
+    ],
+    methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'],
+    credentials: true // allows cookies to be sent
 }));
 
 app.use(express.json())

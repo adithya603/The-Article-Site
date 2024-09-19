@@ -11,14 +11,29 @@ export const AuthContexProvider = ({ children }) => {
     );
 
     const login = async (inputs) => {
-        const res = await axios.post("https://the-article-site.vercel.app/api/auth/login", inputs);
-        setCurrentUser(res.data);
+        try {
+            const res = await axios.post("https://the-article-site.vercel.app/api/auth/login", inputs, {
+                withCredentials: true // Include credentials with the request
+            });
+            setCurrentUser(res.data);
+        } catch (error) {
+            console.error("Login error:", error);
+            // Handle error, e.g., show a notification or alert
+        }
     };
-
-    const logout = async (inputs) => {
-        await axios.post("https://the-article-site.vercel.app/api/auth/logout");
-        setCurrentUser(null);
+    
+    const logout = async () => {
+        try {
+            await axios.post("https://the-article-site.vercel.app/api/auth/logout", {}, {
+                withCredentials: true // Include credentials with the request
+            });
+            setCurrentUser(null);
+        } catch (error) {
+            console.error("Logout error:", error);
+            // Handle error, e.g., show a notification or alert
+        }
     };
+    
 
     useEffect(() => {
         localStorage.setItem("user", JSON.stringify(currentUser));     //converting from object to a string
