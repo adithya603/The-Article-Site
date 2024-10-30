@@ -24,24 +24,18 @@ function Write() {
     e.preventDefault()
 
     try {
-      const config = { withCredentials: true }; // Add this for cookie support
-    
-      if (state) {
-        await axios.put(`https://the-article-site.vercel.app/api/posts/${state.id}`, {
-          title, img, shortDesc, desc, cat
-        }, config);
-      } else {
-        await axios.post(`https://the-article-site.vercel.app/api/posts/`, {
+      state ? await axios.put(`posts/${state.id}`, {   //https://the-article-site.vercel.app/api/posts/${state.id}
+        title, img, shortDesc, desc, cat
+      })
+        : await axios.post(`/posts/`, {
           title, img, shortDesc, desc, cat, 
           date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
-        }, config);
-      }
-    
-      navigate("/home");
+        });
+      navigate("/home")
     } catch (err) {
-      console.log(err.response ? err.response.data : err.message);
+      console.log(err)
     }
-  }    
+  }
 
   return (
     <div className='add'>

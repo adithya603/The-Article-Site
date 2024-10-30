@@ -22,7 +22,7 @@ const Single = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`https://the-article-site.vercel.app/api/posts/${postId}`);
+        const res = await axios.get(`/posts/${postId}`);  //   https://the-article-site.vercel.app/api/posts/${postId}
         setPost(res.data);
       } catch (err) {
         console.log(err);
@@ -33,7 +33,7 @@ const Single = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`https://the-article-site.vercel.app/api/posts/${postId}`, { withCredentials: true });
+      await axios.delete(`/posts/${postId}`);
       navigate("/home")
     } catch (err) {
       console.log(err);

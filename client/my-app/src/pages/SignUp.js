@@ -27,7 +27,7 @@ function SignUp(){
   const handleClick = async (e) =>{
     e.preventDefault()
     try{
-      await axios.post("https://the-article-site.vercel.app/api/auth/signup", inputs)
+      await axios.post("auth/signup", inputs)  ///   https://the-article-site.vercel.app/api/auth/signup
       navigate("/login")
     }catch(err){
       setError(err.response.data)
