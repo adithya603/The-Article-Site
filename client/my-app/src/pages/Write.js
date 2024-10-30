@@ -14,7 +14,7 @@ function Write() {
   const state = useLocation().state
   const [title, setTitle] = useState(state?.title || "");
   const [desc, setDesc] = useState(state?.desc || "")
-  const [shortDesc, setShortDesc] = useState("")
+  const [shortDesc, setShortDesc] = useState(state?.shortDesc || "This is a short Description section. To know more about the post click below.")
   const [img, setImg] = useState(state?.img || "")
   const [cat, setCat] = useState(state?.cat || "")
 

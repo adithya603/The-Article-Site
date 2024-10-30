@@ -3,24 +3,37 @@ import { createContext, useEffect, useState } from "react";
 
 export const AuthContext = createContext();
 
-export const AuthContexProvider = ({ children }) => {
-
-    const [currentUser, setCurrentUser] = useState(         //fetching the current user from the application>localStorage(ctrl+sft+j)
-        JSON.parse(localStorage.getItem("user")) || null   //converting string to object
-    );
+export const AuthContextProvider = ({ children }) => {
+    const [currentUser, setCurrentUser] = useState(() => {
+        try {
+            const storedUser = localStorage.getItem("user");
+            return storedUser && storedUser !== "undefined" ? JSON.parse(storedUser) : null; // Safe parsing
+        } catch (error) {
+            console.error("Failed to parse user data from localStorage:", error);
+            return null; // Fallback to null if parsing fails
+        }
+    });
 
     const login = async (inputs) => {
-        const res = await axios.post("/auth/login", inputs);
-        setCurrentUser(res.data);
+        try {
+            const res = await axios.post("/auth/login", inputs);
+            setCurrentUser(res.data);
+        } catch (error) {
+            console.error("Login failed:", error);
+        }
     };
 
-    const logout = async (inputs) => {
-        await axios.post("/auth/logout");
-        setCurrentUser(null);
+    const logout = async () => {
+        try {
+            await axios.post("/auth/logout");
+            setCurrentUser(null);
+        } catch (error) {
+            console.error("Logout failed:", error);
+        }
     };
 
     useEffect(() => {
-        localStorage.setItem("user", JSON.stringify(currentUser));     //converting from object to string
+        localStorage.setItem("user", JSON.stringify(currentUser)); // Convert object to string
     }, [currentUser]);
 
     return (
@@ -28,4 +41,4 @@ export const AuthContexProvider = ({ children }) => {
             {children}
         </AuthContext.Provider>
     );
-}
+};
