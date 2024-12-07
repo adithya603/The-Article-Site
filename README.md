@@ -37,7 +37,7 @@ Welcome to **The Article Site** repository! This project is designed to provide 
 
 ### Database:
 
-- MongoDB
+- MySql
 
 ### Additional Tools:
 
@@ -64,21 +64,13 @@ Follow these steps to set up the project locally:
    npm install
    ```
 
-3. **Set up environment variables:** Create a `.env` file in the root directory and add the following:
-
-   ```env
-   PORT=5000
-   MONGO_URI=your_mongodb_connection_string
-   JWT_SECRET=your_jwt_secret
-   ```
-
-4. **Start the development server:**
+3. **Start the development server:**
 
    ```bash
-   npm run dev
+   npm start
    ```
 
-5. **Open in your browser:** Navigate to `http://localhost:5000` to view the application.
+4. **Open in your browser:** Navigate to `http://localhost:3000` to view the application.
 
 ---
 
@@ -118,18 +110,12 @@ We welcome contributions to make **The Article Site** better! Here's how you can
 
 ---
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
 ## Contact
 
 If you have any questions, suggestions, or feedback, feel free to reach out:
 
-- **Author:** Adithya
-- **Email:** [adithya@example.com](mailto\:adithya@example.com)
+- **Author:** Adithya B
+- **Email:** [adithya632003@gmail.com](mailto\:adithya632003@gmail.com)
 - **GitHub:** [Adithya603](https://github.com/adithya603)
 
 ---
